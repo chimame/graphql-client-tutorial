@@ -5,6 +5,7 @@ services:
     command: "yarn start"
     volumes:
       - .:/app
+      - client-node-modules:/app/node_modules
     ports:
       - "3000:3000"
   server:
@@ -13,6 +14,7 @@ services:
     command: "yarn start"
     volumes:
       - ./server:/app
+      - server-node-modules:/app/node_modules
     ports:
       - "4000:4000"
   prisma:
@@ -43,3 +45,5 @@ services:
       - postgres:/var/lib/postgresql/data
 volumes:
   postgres:
+  client-node-modules:
+  server-node-modules:
